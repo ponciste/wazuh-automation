@@ -52,7 +52,6 @@
     <alias>webshell connections</alias>
     <frequency>30</frequency>
   </localfile>
-
 ```
 
 ### Active Response
