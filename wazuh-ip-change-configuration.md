@@ -22,7 +22,7 @@ network.host: <new_ip_address>
 
 ### Change `wazuh.yml` configuration
 
-```console
+```bash
 nano /usr/share/wazuh-dashboard/data/wazuh/config/wazuh.yml
 ```
 
