@@ -7,16 +7,16 @@
 **FILE**: `audit.rules`
 
 ### Add auditd rule to detect files uploaded to `/var/www/html/uploads`
-```
+```console
   -w /var/www/html/uploads -p w -k audit-wazuh-w
 ```
 ### Auditd rules that detect command execution from user www-data
-```
+```console
   -a always,exit -F arch=b32 -S execve -F uid=33 -F key=webshell_command_exec
   -a always,exit -F arch=b64 -S execve -F uid=33 -F key=webshell_command_exec
 ```
 ### Auditd rules that detect network connections from user www-data
-```
+```console
   -a always,exit -F arch=b64 -S socket -F a0=10 -F euid=33 -k webshell_net_connect
   -a always,exit -F arch=b64 -S socket -F a0=2 -F euid=33 -k webshell_net_connect
   -a always,exit -F arch=b32 -S socket -F a0=10 -F euid=33 -k webshell_net_connect
@@ -24,7 +24,7 @@
 ```
 ### Update Configuration
 
-```
+```console
   systemctl restart auditd
 ```
 
@@ -35,7 +35,7 @@
 **FILE**: `ossec.conf`
 
 ### Add Audit Logs
-```
+```xml
   <!--  Add Audit Logs -->
   <localfile>
     <log_format>audit</log_format>
@@ -44,7 +44,7 @@
 ```
 
 ### Detect Webshell Connection
-```
+```xml
   <!-- Detect webshell connections by checking open TCP connections -->
   <localfile>
     <log_format>full_command</log_format>
@@ -55,7 +55,7 @@
 ```
 
 ### Active Response
-```
+```xml
   <!-- Add custom kill-webshell script command -->
   <command>
     <name>kill-webshell</name>
@@ -75,7 +75,7 @@
 
 ### Update Configuration
 
-```
+```console
   systemctl restart wazuh-manager
 ```
 
@@ -87,7 +87,7 @@
 
 ### Add Decoder for Web Shell connections
 
-```
+```xml
   <!-- Decoder for web shell network connection. -->
   <decoder name="network-traffic-child">
     <parent>ossec</parent>
@@ -107,7 +107,7 @@ This file needs to be created.
 
 ### Rules to Add
 
-```
+```xml
   <!-- Linux Rules. -->
   <group name="auditd, linux, webshell,">
     <!-- This rule detects web shell network connections. -->
@@ -140,6 +140,6 @@ This file needs to be created.
 
 ### Update Configuration
 
-```
+```console
   systemctl restart wazuh-manager
 ```
