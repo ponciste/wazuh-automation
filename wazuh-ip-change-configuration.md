@@ -22,7 +22,7 @@ network.host: <new_ip_address>
 
 ### Change `wazuh.yml` configuration
 
-```bash
+```console
 nano /usr/share/wazuh-dashboard/data/wazuh/config/wazuh.yml
 ```
 
@@ -45,7 +45,7 @@ Adjust the following line:
 ```console
 ...
 output.elasticsearch.hosts:
-  	- <new_ip_address>:9200
+  - <new_ip_address>:9200
 ...
 ```
 
