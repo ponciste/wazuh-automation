@@ -181,6 +181,7 @@ filebeat test output
 
 ```console
 NODE_NAME=dashboard
+mkdir /etc/wazuh-dashboard/certs
 tar -xf ./wazuh-certificates.tar -C /etc/wazuh-dashboard/certs/ ./$NODE_NAME.pem ./$NODE_NAME-key.pem ./root-ca.pem
 chmod 500 /etc/wazuh-dashboard/certs
 chmod 400 /etc/wazuh-dashboard/certs/*
@@ -190,13 +191,13 @@ chown -R wazuh-dashboard:wazuh-dashboard /etc/wazuh-dashboard/certs
 Restart the dashboard service:
 
 ```console
-systemctl restart dashboard
+systemctl restart wazuh-dashboard
 ```
 
 Test the dashboard service:
 
 ```console
-systemctl status dashboard
+systemctl status wazuh-dashboard
 ```
 
 ## Contact
