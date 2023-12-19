@@ -103,7 +103,7 @@ This file needs to be created.
 
 **PATH**: `/var/ossec/etc/rules`
 
-**FILE**: `webshell_rules.txt`
+**FILE**: `webshell_rules.xml`
 
 ### Rules to Add
 
