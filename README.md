@@ -2,7 +2,7 @@
 
 - VM OVA file with rules: [Download](https://drive.google.com/file/d/1CblbP695JO71nXXDUNqe4guKqxAjM4VL/view?usp=drive_link).
 - VM OVA file without rules: [Download](https://drive.google.com/file/d/1s1PmZAvM1yk_-cFP3UOKQrt5XCcuir3A/view?usp=drive_link).
-- THM Room: [Ironpatchable]([https://drive.google.com/file/d/1s1PmZAvM1yk_-cFP3UOKQrt5XCcuir3A/view?usp=drive_link](https://tryhackme.com/jr/ironpatchable)).
+- THM Room: [Ironpatchable](https://tryhackme.com/jr/ironpatchable).
 
 # Ironpatchable Write-Up
 
