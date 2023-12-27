@@ -108,34 +108,33 @@ This file needs to be created.
 ### Rules to Add
 
 ```xml
-  <!-- Linux Rules. -->
-  <group name="auditd, linux, webshell,">
-    <!-- This rule detects web shell network connections. -->
-    <rule id="100521" level="12">
-      <if_sid>80700</if_sid>
-      <field name="audit.key">webshell_net_connect</field>
-      <description>[Network connection via $(audit.exe)]: Possible web shell attack detected</description>
-      <mitre>
-        <id>TA0011</id>
-        <id>T1049</id>
-        <id>T1505.003</id>
-      </mitre>
-    </rule>
-  </group>
+<!-- Linux Rules. -->
+<group name="auditd, linux, webshell,">
+  <!-- This rule detects web shell network connections. -->
+  <rule id="100521" level="12">
+    <if_sid>80700</if_sid>
+    <field name="audit.key">webshell_net_connect</field>
+    <description>[Network connection via $(audit.exe)]: Possible web shell attack detected</description>
+    <mitre>
+      <id>TA0011</id>
+      <id>T1049</id>
+      <id>T1505.003</id>
+    </mitre>
+  </rule>
+</group>
 
-  <!-- This rule detects network connections from scripts. -->
-  <group name="linux, webshell,">
-    <rule id="100510" level="12">
-      <decoded_as>ossec</decoded_as>
-      <match>ossec: output: 'webshell connections'</match>
-      <description>[Network connection]: Script attempting network connection on source port: $(local_port) and destina>
-      <mitre>
-        <id>TA0011</id>
-        <id>T1049</id>
-        <id>T1505.003</id>
-      </mitre>
-    </rule>
-  </group>
+<group name="linux, webshell,">
+  <rule id="100510" level="12">
+    <decoded_as>ossec</decoded_as>
+    <match>ossec: output: 'webshell connections'</match>
+    <description>[Network connection]: Script attempting network connection on source port: $(local_port) and destination port: $(foreign_port)</description>
+    <mitre>
+      <id>TA0011</id>
+      <id>T1049</id>
+      <id>T1505.003</id>
+    </mitre>
+  </rule>
+</group>
 ```
 
 ### Update Configuration
